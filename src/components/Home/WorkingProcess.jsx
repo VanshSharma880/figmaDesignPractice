@@ -5,6 +5,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Divider,
+  Fab,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -20,6 +22,22 @@ const steps = [
     title: "Research and Strategy Development",
     description: "",
   },
+  {
+    title: "Implementation",
+    description: "",
+  },
+  {
+    title: "Monitoring and Optimization",
+    description: "",
+  },
+  {
+    title: "Reporting and Communication",
+    description: "",
+  },
+  {
+    title: "Continual Improvement",
+    description: "",
+  },
 ];
 
 export default function WorkingProcess() {
@@ -30,14 +48,11 @@ export default function WorkingProcess() {
   };
 
   return (
-    <Box sx={{ px: 4, py: 6 }}>
+    <Box sx={{ p: 5 }}>
       <SectionHeading
-        title={"Case Studies"}
-        description={
-          "Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
-        }
+        title={"Our Working Process "}
+        description={"Step-by-Step Guide to Achieving Your Business Goals"}
       />
-
       {steps.map((step, index) => (
         <Accordion
           key={index}
@@ -46,25 +61,47 @@ export default function WorkingProcess() {
           sx={{
             backgroundColor: expanded === index ? "#c5ff61" : "#f7f7f7",
             color: expanded === index ? "black" : "inherit",
-            borderRadius: 3,
-            boxShadow: "0px 2px 6px rgba(0,0,0,0.1)",
+            borderRadius: "24px",
+            p: 4,
+            boxShadow: "0px 4px 0 #000",
             mb: 2,
           }}
         >
           <AccordionSummary
-            expandIcon={expanded === index ? <RemoveIcon /> : <AddIcon />}
+            expandIcon={
+              expanded === index ? (
+                <Fab sx={{ border: 1, borderColor: "black" }} aria-label="add">
+                  <RemoveIcon />
+                </Fab>
+              ) : (
+                <Fab
+                  sx={{ border: 1, borderColor: "black" }}
+                  aria-label="remove"
+                >
+                  <AddIcon />
+                </Fab>
+              )
+            }
             aria-controls={`panel${index}-content`}
             id={`panel${index}-header`}
           >
-            <Typography fontWeight="bold" variant="h6" sx={{ mr: 2 }}>
+            <Typography fontWeight="bold" variant="h3" sx={{ mr: 2 }}>
               {`0${index + 1}`}
             </Typography>
-            <Typography fontWeight="medium" variant="h6">
+            <Typography fontWeight="medium" sx={{ mt: "3px" }} variant="h5">
               {step.title}
             </Typography>
           </AccordionSummary>
+          <Divider
+            variant="inset"
+            sx={{
+              borderColor: "black",
+              opacity: 1,
+              mb: 2,
+            }}
+          />
           <AccordionDetails>
-            <Typography variant="body2" sx={{ maxWidth: 600 }}>
+            <Typography variant="body1">
               {step.description || "Details coming soon."}
             </Typography>
           </AccordionDetails>

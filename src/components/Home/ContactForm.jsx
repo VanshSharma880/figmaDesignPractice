@@ -1,126 +1,112 @@
 import { useState } from "react";
 import {
   Box,
-  Typography,
   TextField,
   Radio,
   RadioGroup,
   FormControlLabel,
-  Button,
+  useTheme,
 } from "@mui/material";
+import SectionHeading from "../SectionHeading";
+import { BlackButton } from "../mui/blackButton";
 
 const ContactForm = () => {
   const [formType, setFormType] = useState("sayHi");
 
   return (
-    <Box sx={{ py: 5, px: 2, position: "relative" }}>
-      <Typography
-        variant="h6"
-        sx={{ color: "#d4ff00", fontWeight: "bold", mb: 1 }}
-      >
-        CONTACT US
-      </Typography>
-      <Typography variant="body1" sx={{ color: "text.secondary", mb: 3 }}>
-        Connect with Us: Let's Discuss Your Digital Marketing Needs
-      </Typography>
+    <Box sx={{ px: { xs: 2, md: 6 }, py: 5 }}>
+      <SectionHeading
+        title={"Contact Us"}
+        description={
+          "Connect with Us: Let's Discuss Your Digital Marketing Needs"
+        }
+      />
+
       <Box
         sx={{
-          bgcolor: "white",
-          p: 4,
-          borderRadius: 2,
-          boxShadow: 3,
-          maxWidth: 500,
+          mt: 4,
+          bgcolor: "#F3F3F3",
+          borderRadius: "30px",
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          position: "relative",
         }}
       >
-        <RadioGroup
-          row
-          value={formType}
-          onChange={(e) => setFormType(e.target.value)}
-          sx={{ mb: 2 }}
-        >
-          <FormControlLabel
-            value="sayHi"
-            control={<Radio />}
-            label="Say Hi"
-            sx={{ color: "text.primary" }}
-          />
-          <FormControlLabel
-            value="getQuote"
-            control={<Radio />}
-            label="Get a Quote"
-            sx={{ color: "text.primary" }}
-          />
-        </RadioGroup>
-        <TextField
-          fullWidth
-          label="Name"
-          variant="outlined"
-          sx={{ mb: 2, borderRadius: 2 }}
-        />
-        <TextField
-          fullWidth
-          label="Email"
-          variant="outlined"
-          sx={{ mb: 2, borderRadius: 2 }}
-        />
-        <TextField
-          fullWidth
-          label="Message"
-          variant="outlined"
-          multiline
-          rows={4}
-          sx={{ mb: 2, borderRadius: 2 }}
-        />
-        <Button
-          variant="contained"
+        {/* Right Form */}
+        <Box
           sx={{
+            flex: 1,
             width: "100%",
-            bgcolor: "black",
-            color: "white",
-            borderRadius: 2,
-            py: 1.5,
-            "&:hover": { bgcolor: "grey.900" },
+            px: { xs: 3, md: 6 },
+            py: { xs: 4, md: 6 },
+            maxWidth: 600,
           }}
         >
-          Send Message
-        </Button>
-      </Box>
-      {/* Decorative Star Shape */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          right: 0,
-          transform: "translateY(-50%)",
-          display: { xs: "none", md: "block" },
-        }}
-      >
-        <svg width="100" height="100" viewBox="0 0 100 100">
-          <polygon
-            points="50,10 61.8,38.2 90,38.2 67.3,55.6 78.1,83.8 50,67.3 21.9,83.8 32.7,55.6 10,38.2 38.2,38.2"
-            fill="#1a1a1a"
-            stroke="#1a1a1a"
-            strokeWidth="2"
+          <RadioGroup
+            row
+            value={formType}
+            onChange={(e) => setFormType(e.target.value)}
+            sx={{ mb: 2 }}
+          >
+            <FormControlLabel
+              value="sayHi"
+              control={<Radio />}
+              label="Say Hi"
+              sx={{ color: "text.primary" }}
+            />
+            <FormControlLabel
+              value="getQuote"
+              control={<Radio />}
+              label="Get a Quote"
+              sx={{ color: "text.primary" }}
+            />
+          </RadioGroup>
+          <TextField fullWidth label="Name" variant="outlined" sx={{ mb: 2 }} />
+          <TextField
+            fullWidth
+            label="Email"
+            variant="outlined"
+            sx={{ mb: 2 }}
           />
-          <circle
-            cx="50"
-            cy="50"
-            r="40"
-            fill="none"
-            stroke="#d4ff00"
-            strokeWidth="2"
-            strokeDasharray="5,5"
+          <TextField
+            fullWidth
+            label="Message"
+            variant="outlined"
+            multiline
+            rows={4}
+            sx={{ mb: 2 }}
           />
-          <circle
-            cx="50"
-            cy="50"
-            r="30"
-            fill="none"
-            stroke="#d4ff00"
-            strokeWidth="2"
-            strokeDasharray="3,3"
+          <BlackButton label="Send Message" width="100%" />
+        </Box>
+        {/* Left Illustration Image */}
+        <Box
+          sx={{
+            flex: 1,
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "end",
+            width: "100%",
+            height: "100%",
+            minHeight: 300,
+            backgroundColor: "#F3F3F3",
+            position: "relative",
+          }}
+        >
+          <Box
+            component="img"
+            src="/assets/Illustration.png"
+            alt="Decorative Illustration"
+            sx={{
+              width: { xs: "60%", md: "100%" },
+              maxWidth: 300,
+              objectFit: "contain",
+              pl: { xs: 2, md: 0 },
+              mx: { xs: "auto", md: 0 },
+            }}
           />
-        </svg>
+        </Box>
       </Box>
     </Box>
   );

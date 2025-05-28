@@ -10,7 +10,7 @@ import ContactForm from "../../components/Home/ContactForm";
 
 const Home = () => {
   return (
-    <Box sx={{ p: 3 }}>
+    <Box sx={{ p: 5 }}>
       <Hero />
       <ServicesSection />
       <CaseStudies />

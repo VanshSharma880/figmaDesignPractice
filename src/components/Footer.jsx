@@ -1,23 +1,10 @@
-import React from "react";
-import {
-  Box,
-  Typography,
-  Link,
-  TextField,
-  Button,
-  IconButton,
-  Stack,
-} from "@mui/material";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-
+import { Box, Typography, Link, TextField, Button, Stack } from "@mui/material";
 export default function Footer() {
   return (
     <Box
       sx={{
-        backgroundColor: "#0f0f1b",
-        color: "#fff",
+        backgroundColor: "secondary.main",
+        color: "white",
         px: 4,
         py: 6,
         borderTopLeftRadius: "24px",
@@ -34,14 +21,18 @@ export default function Footer() {
         }}
       >
         {/* Left side */}
-        <Box sx={{ minWidth: 260 }}>
-          <Typography variant="h6" fontWeight="bold" gutterBottom>
-            🌟 Positivus
-          </Typography>
+        <Box sx={{ minWidth: 500 }}>
+          <Box
+            component="img"
+            src="/assets/LogoLight.png"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
 
           <Box
             sx={{
-              bgcolor: "#c5ff61",
+              bgcolor: "primary.main",
               borderRadius: "8px",
               display: "inline-block",
               px: 1,
@@ -121,18 +112,18 @@ export default function Footer() {
 
       <Box
         sx={{
-          borderTop: "1px solid #333",
+          borderTop: "1px solid",
           pt: 2,
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "center",
         }}
       >
-        <Typography variant="caption" color="gray">
+        <Typography variant="caption">
           © 2023 Positivus. All Rights Reserved.
         </Typography>
 
-        <Link sx={{ ml: 5 }} href="#" underline="hover">
+        <Link sx={{ ml: 5 }} href="#" underline="1">
           Privacy Policy
         </Link>
       </Box>

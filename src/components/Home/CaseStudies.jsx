@@ -17,7 +17,7 @@ const caseStudies = [
 
 export default function CaseStudies() {
   return (
-    <Box sx={{ px: 4, py: 6 }}>
+    <Box sx={{ px: { xs: 2, sm: 4 }, py: { xs: 4, sm: 6 } }}>
       <SectionHeading
         title={"Case Studies"}
         description={
@@ -27,39 +27,40 @@ export default function CaseStudies() {
 
       <Box
         sx={{
-          backgroundColor: "#0f0f1b",
+          backgroundColor: "secondary.main",
           borderRadius: 4,
-          color: "#fff",
-          p: 8,
+          color: "white",
+          p: { xs: 4, md: 8 },
           display: "flex",
-          flexDirection: "row",
-          gap: 5,
+          flexDirection: { xs: "column", md: "row" },
+          gap: { xs: 4, md: 5 },
         }}
       >
         {caseStudies.map((item, index) => (
           <React.Fragment key={index}>
             <Box flex={1}>
-              <Typography variant="body2" mb={1}>
+              <Typography variant="body1" mb={1}>
                 {item.text}
               </Typography>
               <Link
                 href="#"
+                marginY={2}
                 color="#c5ff61"
                 underline="none"
                 sx={{
                   display: "inline-flex",
                   alignItems: "center",
-                  fontWeight: 500,
+                  fontWeight: 800,
                 }}
               >
-                Learn more <ArrowOutwardIcon sx={{ fontSize: 16, ml: 0.5 }} />
+                Learn more <ArrowOutwardIcon sx={{ fontSize: 20, ml: 0.5 }} />
               </Link>
             </Box>
 
-            {/* Divider between items (not after last item) */}
             {index < caseStudies.length - 1 && (
               <Box
                 sx={{
+                  display: { xs: "none", md: "block" },
                   width: "1px",
                   backgroundColor: "white",
                   mx: 1,

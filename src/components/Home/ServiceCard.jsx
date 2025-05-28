@@ -80,27 +80,30 @@
 
 // export default ServiceCard;
 
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Grid } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
-export default function ServiceCard() {
+function ServiceCard() {
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
         alignItems: "center",
-        bgcolor: "#f7f7f7",
+        bgcolor: "tertiary.main",
         borderRadius: "24px",
-        p: 4,
-        boxShadow: "8px 8px 0 #000",
-        maxWidth: 500,
+        p: { xs: 2, sm: 3, md: 4 },
+        boxShadow: "0 4px 0 #000",
+        maxWidth: 600,
         width: "100%",
-        minHeight: 200,
+        mx: "auto",
+        minHeight: { xs: "auto", md: 200 },
+        textAlign: { xs: "center", md: "left" },
       }}
     >
       {/* Left Side */}
-      <Box>
+      <Box flex={1}>
         <Box
           sx={{
             display: "inline-block",
@@ -127,7 +130,12 @@ export default function ServiceCard() {
           </Typography>
         </Box>
 
-        <Box mt={4} display="flex" alignItems="center">
+        <Box
+          mt={4}
+          display="flex"
+          justifyContent={{ xs: "center", md: "flex-start" }}
+          alignItems="center"
+        >
           <Button
             variant="contained"
             sx={{
@@ -148,14 +156,46 @@ export default function ServiceCard() {
         </Box>
       </Box>
 
-      {/* Right Side (Image or Illustration) */}
-      <Box sx={{ ml: 2 }}>
+      {/* Right Side (Image) */}
+      <Box
+        sx={{
+          mt: { xs: 4, md: 0 },
+          ml: { md: 2 },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <img
           src="/assets/SearchEngine.svg"
           alt="SEO Illustration"
-          style={{ width: 200, height: 200, objectFit: "contain" }}
+          style={{
+            width: "100%",
+            maxWidth: 200,
+            height: "auto",
+            objectFit: "contain",
+          }}
         />
       </Box>
     </Box>
+  );
+}
+
+export default function ServiceCardGrid() {
+  return (
+    <Grid container spacing={6} justifyContent={"center"}>
+      {Array.from({ length: 6 }).map((_, index) => (
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          key={index}
+          display="flex"
+          justifyContent="center"
+        >
+          <ServiceCard />
+        </Grid>
+      ))}
+    </Grid>
   );
 }

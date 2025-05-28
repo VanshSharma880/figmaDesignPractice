@@ -39,7 +39,7 @@ const Header = () => {
     <AppBar
       position="sticky"
       enableColorOnDark
-      sx={{ backgroundColor: "white", boxShadow: "none" }} // optional: remove shadow
+      sx={{ backgroundColor: "white", boxShadow: "none" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ py: 1.5 }}>
@@ -70,7 +70,6 @@ const Header = () => {
                 {navItems.map((item) => (
                   <Button
                     key={item.title}
-                    // href={item.href}
                     onClick={() => {
                       navigate(item.href);
                     }}
@@ -107,7 +106,7 @@ const Header = () => {
             <>
               <Box sx={{ flexGrow: 1 }} />
               <IconButton
-                color="inherit"
+                color="black"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
