@@ -36,7 +36,7 @@ const HeroSection = ({ title, subtitle, image }) => {
             <Typography variant="h1" fontWeight="bold" gutterBottom>
               {title}
             </Typography>
-            <Typography variant="h5" color="text.secondary">
+            <Typography variant="h6" sx={{ py: 4 }}>
               {subtitle}
             </Typography>
           </Box>

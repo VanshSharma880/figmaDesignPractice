@@ -1,46 +1,62 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Stack from "@mui/material/Stack";
 
+const awardsData = [1, 2, 3, 4];
+
 const AwardsRecognition = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
-    <Box sx={{ overflowX: "auto", width: "100%" }}>
+    <Box
+      sx={{
+        width: "100%",
+        overflowX: isSmallScreen ? "hidden" : "auto",
+        py: 4,
+      }}
+    >
       <Stack
-        direction="row"
+        direction={isSmallScreen ? "column" : "row"}
         spacing={4}
-        justifyContent={"center"}
+        justifyContent="center"
+        alignItems="center"
         sx={{
-          minWidth: "max-content",
+          minWidth: isSmallScreen ? "100%" : "max-content",
           px: 2,
         }}
       >
-        {[1, 2, 3, 4].map((item) => (
+        {awardsData.map((item) => (
           <Box
             key={item}
             sx={{
-              width: 200,
-              height: 300,
-              borderRadius: 10,
+              width: { xs: "90%", sm: 280 },
+              maxWidth: 300,
+              minHeight: 360,
+              borderRadius: 8,
               bgcolor: "tertiary.main",
-              p: 4,
-              flexShrink: 0,
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              textAlign: "left",
             }}
           >
             <Box
               component="img"
-              src="/path-to-your-image.jpg"
-              alt="Achievement"
+              src="/assets/Recognition.png"
+              alt={`Award ${item}`}
               sx={{
                 width: "100%",
-                height: "auto",
-                mb: 2,
+                height: 200,
                 borderRadius: 2,
                 objectFit: "cover",
+                mb: 2,
               }}
             />
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
               Sample heading text for year {item}
             </Typography>
-            <Typography variant="body1" sx={{ mt: 4 }}>
+            <Typography variant="body1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Recusandae voluptates rem harum.
             </Typography>

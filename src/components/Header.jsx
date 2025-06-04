@@ -15,14 +15,14 @@ import {
   useTheme,
 } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
-  { title: "About us", href: "aboutUs" },
-  { title: "Services", href: "services" },
-  { title: "Use Cases", href: "useCase" },
-  { title: "Pricing", href: "pricing" },
-  { title: "Blog", href: "blog" },
+  { title: "About us", href: "/aboutUs" },
+  { title: "Services", href: "/services" },
+  { title: "Use Cases", href: "/useCase" },
+  { title: "Pricing", href: "/pricing" },
+  { title: "Blog", href: "/blog" },
 ];
 
 const Header = () => {
@@ -30,9 +30,15 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  // Function to check if this nav item is active
+  const isActive = (href) => {
+    return location.pathname === href;
   };
 
   return (
@@ -44,15 +50,23 @@ const Header = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ py: 1.5 }}>
           <Box
-            sx={{ flexGrow: 0, display: "flex", alignItems: "center", mr: 2 }}
+            sx={{
+              flexGrow: 0,
+              display: "flex",
+              alignItems: "center",
+              mr: 2,
+              cursor: "pointer",
+            }}
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box
                 component="img"
                 src="/assets/Logo.png"
+                alt="logo"
                 onClick={() => {
                   navigate("/");
                 }}
+                sx={{ height: 40 }}
               />
             </Box>
           </Box>
@@ -75,11 +89,11 @@ const Header = () => {
                     }}
                     sx={{
                       mx: 1.5,
-                      color: "text.primary",
-                      "&:hover": {
-                        backgroundColor: "transparent",
-                        color: "secondary.main",
-                      },
+                      backgroundColor: isActive(item.href)
+                        ? "primary.main"
+                        : "none",
+                      color: "black",
+                      borderRadius: 2,
                     }}
                   >
                     {item.title}
@@ -135,8 +149,27 @@ const Header = () => {
         <List>
           {navItems.map((item) => (
             <ListItem key={item.title} disablePadding>
-              <ListItemButton href={item.href} onClick={handleDrawerToggle}>
-                <ListItemText primary={item.title} />
+              <ListItemButton
+                onClick={() => {
+                  navigate(item.href);
+                  handleDrawerToggle();
+                }}
+                sx={{
+                  borderLeft: isActive(item.href)
+                    ? `4px solid ${theme.palette.primary.main}`
+                    : "4px solid transparent",
+                  bgcolor: isActive(item.href) ? "action.selected" : "inherit",
+                }}
+              >
+                <ListItemText
+                  primary={item.title}
+                  primaryTypographyProps={{
+                    fontWeight: isActive(item.href) ? "bold" : "normal",
+                    color: isActive(item.href)
+                      ? theme.palette.primary.main
+                      : "text.primary",
+                  }}
+                />
               </ListItemButton>
             </ListItem>
           ))}

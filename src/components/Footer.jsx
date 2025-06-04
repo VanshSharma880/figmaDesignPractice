@@ -150,7 +150,7 @@ const Footer = () => {
               label={"Subscribe to news"}
               bgcolor={"primary.main"}
               textColor={"black"}
-              width={{ xs: "100%", sm: 200 }} // Full width on small, fixed width on larger
+              width={{ xs: "100%", md: 300 }} // Full width on small, fixed width on larger
             />
           </Box>
         </Box>
