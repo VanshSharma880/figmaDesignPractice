@@ -1,17 +1,20 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { TextField } from "@mui/material";
 import { BlackButton } from "./mui/blackButton";
-import { useNavigate } from "react-router-dom"; // required for navigation
-
-const pages = ["About us", "Use case", "Services", "Pricing", "Blog"];
-
+import { Link, useNavigate } from "react-router-dom";
+const navItems = [
+  { title: "About us", href: "/aboutUs" },
+  { title: "Services", href: "/services" },
+  { title: "Use Cases", href: "/useCase" },
+  { title: "Pricing", href: "/pricing" },
+  { title: "Blog", href: "/blog" },
+];
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -47,34 +50,39 @@ const Footer = () => {
                 flexGrow: 1,
               }}
             >
-              {pages.map((page) => (
-                <Typography
-                  key={page}
-                  sx={{
-                    m: 2,
-                    color: "white",
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                  }}
+              {navItems.map((navItems) => (
+                <Link
+                  key={navItems.href}
+                  to={navItems.href}
+                  style={{ textDecoration: "none" }}
                 >
-                  {page}
-                </Typography>
+                  <Typography
+                    sx={{
+                      m: 2,
+                      color: "white",
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    {navItems.title}
+                  </Typography>
+                </Link>
               ))}
             </Box>
 
             <Box sx={{ display: "flex", gap: 1, mr: 2 }}>
-              {[FacebookIcon, TwitterIcon, InstagramIcon].map((Icon, idx) => (
-                <IconButton
-                  key={idx}
-                  sx={{
-                    bgcolor: "white",
-                    color: "secondary.main",
-                    borderRadius: "50%",
-                  }}
-                  aria-label={Icon.displayName}
-                >
-                  <Icon />
-                </IconButton>
+              {[LinkedInIcon, FacebookIcon, TwitterIcon].map((Icon, idx) => (
+                <Link href="#">
+                  <Box
+                    key={idx}
+                    sx={{
+                      p: 2,
+                      color: "white",
+                    }}
+                  >
+                    <Icon />
+                  </Box>
+                </Link>
               ))}
             </Box>
           </Toolbar>

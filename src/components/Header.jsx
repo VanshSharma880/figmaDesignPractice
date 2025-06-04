@@ -15,7 +15,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
   { title: "About us", href: "/aboutUs" },
@@ -59,15 +59,14 @@ const Header = () => {
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Box
-                component="img"
-                src="/assets/Logo.png"
-                alt="logo"
-                onClick={() => {
-                  navigate("/");
-                }}
-                sx={{ height: 40 }}
-              />
+              <Link to="/">
+                <Box
+                  component="img"
+                  src="/assets/Logo.png"
+                  alt="logo"
+                  sx={{ height: 40 }}
+                />
+              </Link>
             </Box>
           </Box>
 
@@ -82,22 +81,21 @@ const Header = () => {
                 }}
               >
                 {navItems.map((item) => (
-                  <Button
-                    key={item.title}
-                    onClick={() => {
-                      navigate(item.href);
-                    }}
-                    sx={{
-                      mx: 1.5,
-                      backgroundColor: isActive(item.href)
-                        ? "primary.main"
-                        : "none",
-                      color: "black",
-                      borderRadius: 2,
-                    }}
-                  >
-                    {item.title}
-                  </Button>
+                  <Link to={item.href}>
+                    <Button
+                      key={item.title}
+                      sx={{
+                        mx: 1.5,
+                        backgroundColor: isActive(item.href)
+                          ? "primary.main"
+                          : "none",
+                        color: "black",
+                        borderRadius: 2,
+                      }}
+                    >
+                      {item.title}
+                    </Button>
+                  </Link>
                 ))}
               </Box>
 
@@ -149,28 +147,28 @@ const Header = () => {
         <List>
           {navItems.map((item) => (
             <ListItem key={item.title} disablePadding>
-              <ListItemButton
-                onClick={() => {
-                  navigate(item.href);
-                  handleDrawerToggle();
-                }}
-                sx={{
-                  borderLeft: isActive(item.href)
-                    ? `4px solid ${theme.palette.primary.main}`
-                    : "4px solid transparent",
-                  bgcolor: isActive(item.href) ? "action.selected" : "inherit",
-                }}
-              >
-                <ListItemText
-                  primary={item.title}
-                  primaryTypographyProps={{
-                    fontWeight: isActive(item.href) ? "bold" : "normal",
-                    color: isActive(item.href)
-                      ? theme.palette.primary.main
-                      : "text.primary",
+              <Link to={item.href}>
+                <ListItemButton
+                  sx={{
+                    borderLeft: isActive(item.href)
+                      ? `4px solid ${theme.palette.primary.main}`
+                      : "4px solid transparent",
+                    bgcolor: isActive(item.href)
+                      ? "action.selected"
+                      : "inherit",
                   }}
-                />
-              </ListItemButton>
+                >
+                  <ListItemText
+                    primary={item.title}
+                    primaryTypographyProps={{
+                      fontWeight: isActive(item.href) ? "bold" : "normal",
+                      color: isActive(item.href)
+                        ? theme.palette.primary.main
+                        : "text.primary",
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
             </ListItem>
           ))}
           <ListItem disablePadding sx={{ mt: 2 }}>

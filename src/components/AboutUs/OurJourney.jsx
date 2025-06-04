@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
-// Timeline data
+
 const timelineEvents = [
   {
     year: "2019",

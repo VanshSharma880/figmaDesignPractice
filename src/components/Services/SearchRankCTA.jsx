@@ -1,5 +1,4 @@
 import { Box, Divider, Grid, Typography } from "@mui/material";
-import React from "react";
 import { BlackButton } from "../mui/blackButton";
 
 const SearchRankCTA = () => {

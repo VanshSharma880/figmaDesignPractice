@@ -47,17 +47,15 @@ const Testimonials = () => {
       <Box
         sx={{
           bgcolor: "secondary.main",
-          color: "#fff",
-          p: 6,
+          color: "white",
           textAlign: "center",
-          borderRadius: "26px",
+          borderRadius: 10,
         }}
       >
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
-            gap: 4,
             overflow: "hidden",
             position: "relative",
             minHeight: 300,
@@ -71,15 +69,15 @@ const Testimonials = () => {
                 transform: `translateX(${(i - current) * 100}%)`,
                 transition: "transform 0.5s ease-in-out",
                 position: "absolute",
-                top: 0,
+                top: 30,
                 left: 0,
                 px: 2,
               }}
             >
               <Box
                 sx={{
-                  border: "2px solid #C6FF72",
-                  borderRadius: "20px",
+                  border: "1px solid #C6FF72",
+                  borderRadius: 10,
                   maxWidth: 600,
                   mx: "auto",
                   p: 4,
@@ -88,13 +86,13 @@ const Testimonials = () => {
                     content: '""',
                     position: "absolute",
                     bottom: -12,
-                    left: "5%",
+                    left: "7%",
                     transform: "translateX(-50%)",
                     width: 0,
                     height: 0,
                     borderLeft: "12px solid transparent",
                     borderRight: "12px solid transparent",
-                    borderTop: "12px solid #C6FF72",
+                    borderTop: "12px solid rgb(160, 201, 99)",
                   },
                 }}
               >

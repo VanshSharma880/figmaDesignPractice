@@ -1,4 +1,3 @@
-import React from "react";
 import FAQLayout from "../FAQLayout";
 
 const data = [
