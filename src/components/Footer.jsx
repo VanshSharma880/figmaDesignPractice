@@ -1,126 +1,185 @@
-import { Box, Typography, Link, TextField, Button, Stack } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import { TextField } from "@mui/material";
 import { BlackButton } from "./mui/blackButton";
-export default function Footer() {
+import { useNavigate } from "react-router-dom"; // required for navigation
+
+const pages = ["About us", "Use case", "Services", "Pricing", "Blog"];
+
+const Footer = () => {
+  const navigate = useNavigate();
+
   return (
-    <Box
-      sx={{
-        backgroundColor: "secondary.main",
-        color: "white",
-        px: 4,
-        py: 6,
-        borderTopLeftRadius: "24px",
-        borderTopRightRadius: "24px",
-      }}
-    >
+    <Box component="footer">
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 4,
-          mb: 4,
+          backgroundColor: "secondary.main",
+          color: "white",
+          p: 5,
+          borderTopLeftRadius: 50,
+          borderTopRightRadius: 50,
         }}
       >
-        {/* Left side */}
-        <Box sx={{ minWidth: 500 }}>
-          <Box
-            component="img"
-            src="/assets/LogoLight.png"
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-
-          <Box
-            sx={{
-              bgcolor: "primary.main",
-              borderRadius: "8px",
-              display: "inline-block",
-              px: 1,
-              mb: 1,
-            }}
+        {/* Top */}
+        <AppBar position="static" color="secondary" elevation={0}>
+          <Toolbar
+            disableGutters
+            sx={{ justifyContent: "space-between", flexWrap: "wrap" }}
           >
-            <Typography variant="body1" color="black" fontWeight="bold">
-              Contact us:
+            <Box
+              component="img"
+              src="/assets/LogoLight.png"
+              alt="Logo"
+              sx={{ height: 40, cursor: "pointer", ml: 2 }}
+              onClick={() => navigate("/")}
+            />
+
+            <Box
+              sx={{
+                display: { xs: "row", md: "flex" },
+                justifyContent: "center",
+                flexGrow: 1,
+              }}
+            >
+              {pages.map((page) => (
+                <Typography
+                  key={page}
+                  sx={{
+                    m: 2,
+                    color: "white",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
+                >
+                  {page}
+                </Typography>
+              ))}
+            </Box>
+
+            <Box sx={{ display: "flex", gap: 1, mr: 2 }}>
+              {[FacebookIcon, TwitterIcon, InstagramIcon].map((Icon, idx) => (
+                <IconButton
+                  key={idx}
+                  sx={{
+                    bgcolor: "white",
+                    color: "secondary.main",
+                    borderRadius: "50%",
+                  }}
+                  aria-label={Icon.displayName}
+                >
+                  <Icon />
+                </IconButton>
+              ))}
+            </Box>
+          </Toolbar>
+        </AppBar>
+
+        {/* Middle */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: { xs: "center", md: "space-between" },
+            alignItems: { xs: "center", md: "flex-start" },
+            gap: 4,
+            flexWrap: "wrap",
+            my: 4,
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          {/* Contact address */}
+          <Box sx={{ minWidth: 250 }}>
+            <Box
+              sx={{
+                bgcolor: "primary.main",
+                borderRadius: "8px",
+                display: "inline-block",
+                px: 1,
+                mt: 3,
+                mx: { xs: "auto", md: 0 },
+              }}
+            >
+              <Typography variant="body1" color="black" fontWeight="bold">
+                Contact us:
+              </Typography>
+            </Box>
+
+            <Typography variant="body1" sx={{ py: 2 }}>
+              Email: info@positivus.com
+            </Typography>
+            <Typography variant="body1">Phone: 555-567-8901</Typography>
+            <Typography variant="body1" sx={{ py: 2 }}>
+              Address: 1234 Main St,
+              <br />
+              Moonstone City, Stardust State 12345
             </Typography>
           </Box>
 
-          <Typography variant="body1">Email: info@positivus.com</Typography>
-          <Typography variant="body1">Phone: 555-567-8901</Typography>
-          <Typography variant="body1">
-            Address: 1234 Main St, Moonstone City, Stardust State 12345
-          </Typography>
+          {/* Newsletter Subscription */}
+          <Box
+            sx={{
+              backgroundColor: "#292A32",
+              borderRadius: 2,
+              p: { xs: 2, sm: 4 },
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: "center",
+              gap: { xs: 1.5, sm: 2 },
+              maxWidth: 500,
+              width: "100%",
+            }}
+          >
+            <TextField
+              variant="outlined"
+              placeholder="Email"
+              size="small"
+              fullWidth
+              sx={{
+                backgroundColor: "#0f0f1b",
+                input: { color: "white" },
+                "& fieldset": { borderColor: "white" },
+              }}
+            />
+            <BlackButton
+              label={"Subscribe to news"}
+              bgcolor={"primary.main"}
+              textColor={"black"}
+              width={{ xs: "100%", sm: 200 }} // Full width on small, fixed width on larger
+            />
+          </Box>
         </Box>
 
-        {/* Navigation Links */}
-        <Stack
-          direction="row"
-          spacing={4}
-          sx={{ flexWrap: "wrap", alignItems: "center" }}
-        >
-          {["About us", "Services", "Use Cases", "Pricing", "Blog"].map(
-            (text) => (
-              <Link
-                key={text}
-                href="#"
-                underline="1"
-                sx={{ color: "#fff", fontSize: "14px" }}
-              >
-                {text}
-              </Link>
-            )
-          )}
-        </Stack>
-
-        {/* Newsletter Subscription */}
+        {/* Bottom */}
         <Box
           sx={{
-            backgroundColor: "#292A32",
-            borderRadius: 2,
-            p: 2,
+            borderTop: "1px solid white",
+            pt: 3,
+            mt: 3,
             display: "flex",
-            alignItems: "center",
-            gap: 1,
-            minWidth: 280,
+            flexDirection: { xs: "column", sm: "row" },
+
+            gap: 2,
           }}
         >
-          <TextField
-            variant="outlined"
-            placeholder="Email"
-            size="small"
-            sx={{
-              flex: 1,
-              backgroundColor: "#0f0f1b",
-              input: { color: "#fff" },
-              "& fieldset": { borderColor: "#555" },
-            }}
-          />
-          <BlackButton
-            label={"Subscribe to news"}
-            bgcolor={"primary.main"}
-            textColor={"black"}
-            width={"200px"}
-          />
+          <Typography variant="body1">
+            © 2023 Positivus. All Rights Reserved.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ textDecoration: "underline", cursor: "pointer" }}
+          >
+            Privacy Policy
+          </Typography>
         </Box>
-      </Box>
-
-      <Box
-        sx={{
-          borderTop: "1px solid",
-          pt: 2,
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="caption">
-          © 2023 Positivus. All Rights Reserved.
-        </Typography>
-
-        <Link sx={{ ml: 5 }} href="#" underline="1">
-          Privacy Policy
-        </Link>
       </Box>
     </Box>
   );
-}
+};
+
+export default Footer;
