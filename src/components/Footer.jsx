@@ -35,13 +35,14 @@ const Footer = () => {
             disableGutters
             sx={{ justifyContent: "space-between", flexWrap: "wrap" }}
           >
-            <Box
-              component="img"
-              src="/assets/LogoLight.png"
-              alt="Logo"
-              sx={{ height: 40, cursor: "pointer", ml: 2 }}
-              onClick={() => navigate("/")}
-            />
+            <Link to={"/"}>
+              <Box
+                component="img"
+                src="/assets/LogoLight.png"
+                alt="Logo"
+                sx={{ height: 30, cursor: "pointer", ml: 2 }}
+              />
+            </Link>
 
             <Box
               sx={{

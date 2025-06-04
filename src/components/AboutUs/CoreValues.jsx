@@ -6,22 +6,26 @@ const CoreValues = () => {
   const coreValues = [
     {
       title: "Innovation",
-      description: "We constantly seek new and creative solutions.",
+      description:
+        "We constantly seek new and creative solutions. Lorem ipsum dolor sit amet consectetur adipisicing.",
       image: "",
     },
     {
       title: "Integrity",
-      description: "We uphold the highest standards of honesty.",
+      description:
+        "We uphold the highest standards of honesty. dolor sit amet consectetur adipisicing.",
       image: "/assets/Innovation.svg",
     },
     {
       title: "Teamwork",
-      description: "We believe in the power of working together.",
+      description:
+        "We believe in the power of working together. We constantly seek new and creative solutions. Lorem ipsum dolor sit amet consectetur adipisicing.",
       image: "/assets/Collaboration.svg",
     },
     {
       title: "Excellence",
-      description: "We strive to exceed expectations in everything.",
+      description:
+        "We strive to exceed expectations seek new and creative solutions. Lorem ipsum dolor sit amet consectetur adipisicing.",
       image: "",
     },
   ];

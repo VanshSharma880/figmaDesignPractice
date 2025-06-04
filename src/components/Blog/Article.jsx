@@ -2,18 +2,18 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import CTASection from "../CTASection";
+import StarIcon from "@mui/icons-material/Star";
 import BlogFactSection from "./BlogFactSection";
 export default function Article() {
   return (
     <Box sx={{ p: 5 }}>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         Sarah Kim
       </Typography>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body1" color="text.secondary">
         Content Creator
       </Typography>
-      <Divider sx={{ my: 3 }} />
+      <Divider sx={{ my: 3, borderColor: "black" }} />
       <Box sx={{ p: { xs: 3, md: 6 }, maxWidth: 900, mx: "auto" }}>
         {/* Author Section */}
 
@@ -67,8 +67,8 @@ export default function Article() {
           Striking the Right Balance
         </Typography>
         <Box sx={{ borderLeft: 4, borderColor: "primary.main", pl: 2, my: 2 }}>
-          <Typography variant="body1" fontStyle="italic">
-            "PPC and organic marketing aren’t rivals—they’re teammates. The best
+          <Typography variant="body2" color="text.secondary">
+            “PPC and organic marketing aren’t rivals—they’re teammates. The best
             strategies combine both to create a holistic approach to growth,”
             says a digital marketing expert.
           </Typography>
@@ -79,6 +79,11 @@ export default function Article() {
           new product launch while building long-term organic authority through
           SEO and blogging. Combining these strategies ensures you're reaching
           your audience now while laying the groundwork for future success.
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          For small business generate quick traffic for a new product launch
+          while building long-term organic authority through SEO organic
+          authority through SEO and blogging. Combining these PPC?
         </Typography>
 
         <Typography variant="h3" gutterBottom sx={{ mt: 4 }}>
@@ -115,20 +120,20 @@ export default function Article() {
         </Typography>
         <Box component="ul" sx={{ pl: 3, mb: 3 }}>
           <li>
-            <Typography variant="body2">
+            <Typography variant="body1" sx={{ my: 3 }}>
               PPC provides instant visibility but can be costly if not
               well-optimized. Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Qui, amet.
             </Typography>
           </li>
           <li>
-            <Typography variant="body2">
+            <Typography variant="body1" sx={{ my: 3 }}>
               Organic Lorem ipsum dolor sit amet, consectetur adipisicing.
               marketing builds long-term trust through valuable content and SEO.
             </Typography>
           </li>
           <li>
-            <Typography variant="body2">
+            <Typography variant="body1" sx={{ my: 3 }}>
               A Lorem ipsum dolor sit amet consectetur. hybrid approach balances
               short-term wins with sustainable growth.
             </Typography>
@@ -151,6 +156,16 @@ export default function Article() {
           like an impossible balancing act. Do you play the long game with
           organic strategies or opt for quick wins with PPC?
         </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 4,
+          }}
+        >
+          <StarIcon />
+        </Box>
       </Box>
     </Box>
   );

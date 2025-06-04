@@ -64,7 +64,7 @@ const Header = () => {
                   component="img"
                   src="/assets/Logo.png"
                   alt="logo"
-                  sx={{ height: 40 }}
+                  sx={{ height: 30 }}
                 />
               </Link>
             </Box>
