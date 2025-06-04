@@ -5,7 +5,7 @@ const HeroSection = ({ title, subtitle, image }) => {
     <Box
       sx={{
         backgroundColor: "tertiary.main",
-        borderRadius: "24px",
+        borderRadius: 10,
         p: { xs: 4, md: 6 },
         maxWidth: "100%",
       }}

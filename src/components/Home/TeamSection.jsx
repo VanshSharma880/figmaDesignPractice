@@ -1,16 +1,9 @@
 import { Box, Grid, IconButton, Typography } from "@mui/material";
-import SectionHeading from "../SectionHeading";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const TeamSection = () => {
   return (
-    <Box sx={{ p: 5 }}>
-      <SectionHeading
-        title={"Team"}
-        description={
-          "Meet the skilled and experienced team behind our successful digital marketing strategies"
-        }
-      />
+    <Box>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -21,6 +14,7 @@ const TeamSection = () => {
             <Box
               sx={{
                 position: "relative",
+                mx: "auto",
                 display: "flex",
                 flexDirection: { xs: "column", md: "row" },
                 border: 1,

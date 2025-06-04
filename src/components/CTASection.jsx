@@ -1,12 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { BlackButton } from "./mui/blackButton";
 
-const CTASection = () => {
+const CTASection = ({ bgColor = "tertiary.main" }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "tertiary.main",
-        borderRadius: 4,
+        backgroundColor: bgColor,
+        borderRadius: 10,
         p: { xs: 4, md: 8 },
         mt: 8,
         position: "relative",

@@ -1,32 +1,19 @@
-import { useState } from "react";
 import {
   Box,
   TextField,
   Radio,
   RadioGroup,
   FormControlLabel,
-  useTheme,
 } from "@mui/material";
-import SectionHeading from "../SectionHeading";
 import { BlackButton } from "../mui/blackButton";
 
 const ContactForm = () => {
-  const [formType, setFormType] = useState("sayHi");
-
   return (
-    <Box sx={{ px: { xs: 2, md: 6 }, py: 5 }}>
-      <SectionHeading
-        title={"Contact Us"}
-        description={
-          "Connect with Us: Let's Discuss Your Digital Marketing Needs"
-        }
-      />
-
+    <Box>
       <Box
         sx={{
-          mt: 4,
           bgcolor: "#F3F3F3",
-          borderRadius: "30px",
+          borderRadius: 10,
           overflow: "hidden",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
@@ -44,12 +31,7 @@ const ContactForm = () => {
             maxWidth: 600,
           }}
         >
-          <RadioGroup
-            row
-            value={formType}
-            onChange={(e) => setFormType(e.target.value)}
-            sx={{ mb: 2 }}
-          >
+          <RadioGroup row sx={{ mb: 2 }}>
             <FormControlLabel
               value="sayHi"
               control={<Radio />}

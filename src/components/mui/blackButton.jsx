@@ -1,15 +1,20 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-export const BlackButton = ({ label, width = "opx" }) => {
+export const BlackButton = ({
+  label,
+  width,
+  bgcolor = "secondary.main",
+  textColor = "white",
+}) => {
   return (
     <Button
       variant="contained"
       size="large"
       sx={{
         width,
-        bgcolor: "secondary.main",
-        color: "white",
+        bgcolor: bgcolor,
+        color: textColor,
       }}
     >
       {label}

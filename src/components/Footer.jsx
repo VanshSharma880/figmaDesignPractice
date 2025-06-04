@@ -1,4 +1,5 @@
 import { Box, Typography, Link, TextField, Button, Stack } from "@mui/material";
+import { BlackButton } from "./mui/blackButton";
 export default function Footer() {
   return (
     <Box
@@ -39,14 +40,14 @@ export default function Footer() {
               mb: 1,
             }}
           >
-            <Typography variant="body2" color="black" fontWeight="bold">
+            <Typography variant="body1" color="black" fontWeight="bold">
               Contact us:
             </Typography>
           </Box>
 
-          <Typography variant="body2">Email: info@positivus.com</Typography>
-          <Typography variant="body2">Phone: 555-567-8901</Typography>
-          <Typography variant="body2">
+          <Typography variant="body1">Email: info@positivus.com</Typography>
+          <Typography variant="body1">Phone: 555-567-8901</Typography>
+          <Typography variant="body1">
             Address: 1234 Main St, Moonstone City, Stardust State 12345
           </Typography>
         </Box>
@@ -62,7 +63,7 @@ export default function Footer() {
               <Link
                 key={text}
                 href="#"
-                underline="hover"
+                underline="1"
                 sx={{ color: "#fff", fontSize: "14px" }}
               >
                 {text}
@@ -74,7 +75,7 @@ export default function Footer() {
         {/* Newsletter Subscription */}
         <Box
           sx={{
-            backgroundColor: "#1a1a2e",
+            backgroundColor: "#292A32",
             borderRadius: 2,
             p: 2,
             display: "flex",
@@ -94,19 +95,12 @@ export default function Footer() {
               "& fieldset": { borderColor: "#555" },
             }}
           />
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#c5ff61",
-              color: "black",
-              fontWeight: "bold",
-              "&:hover": {
-                backgroundColor: "#b0f457",
-              },
-            }}
-          >
-            Subscribe to news
-          </Button>
+          <BlackButton
+            label={"Subscribe to news"}
+            bgcolor={"primary.main"}
+            textColor={"black"}
+            width={"200px"}
+          />
         </Box>
       </Box>
 

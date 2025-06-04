@@ -2,7 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-
+import CTASection from "../CTASection";
+import BlogFactSection from "./BlogFactSection";
 export default function Article() {
   return (
     <Box sx={{ p: 5 }}>
@@ -83,14 +84,9 @@ export default function Article() {
         <Typography variant="h3" gutterBottom sx={{ mt: 4 }}>
           By the Numbers: Facts About PPC and Organic Marketing
         </Typography>
-        <Typography variant="body1" gutterBottom>
-          • Businesses make an average of $2 for every $1 spent on Google Ads.
-          <br />
-          • 70% of clicks on search engines are organic.
-          <br />• 61% of marketers say improving SEO and growing their organic
-          presence is a top priority.
-        </Typography>
-
+      </Box>
+      <BlogFactSection />
+      <Box sx={{ maxWidth: 900, mx: "auto" }}>
         <Typography variant="h3" gutterBottom sx={{ mt: 4 }}>
           Real-World Examples
         </Typography>
@@ -159,3 +155,120 @@ export default function Article() {
     </Box>
   );
 }
+
+// import { Box, Grid, Typography } from "@mui/material";
+// import React from "react";
+
+// const Article = () => {
+//   return (
+//     <Grid container spacing={2}>
+//       {/* Top Left */}
+//       <Grid item xs={12} sm={6}>
+//         <Box
+//           sx={{
+//             p: 3,
+//             border: "1px solid",
+//             borderColor: "grey.300",
+//             borderRadius: "16px",
+//             height: "100%",
+//             display: "flex",
+//             flexDirection: "column",
+//             justifyContent: "center",
+//           }}
+//         >
+//           <Typography variant="body2" color="text.secondary" mb={1}>
+//             Businesses earn an average of
+//           </Typography>
+//           <Typography variant="h6" fontWeight={700}>
+//             $2 for every $1 spent
+//           </Typography>
+//           <Typography variant="body2" color="text.secondary" mt={1}>
+//             on PPC advertising.
+//           </Typography>
+//         </Box>
+//       </Grid>
+
+//       {/* Top Right */}
+//       <Grid item xs={12} sm={6}>
+//         <Box
+//           sx={{
+//             p: 3,
+//             bgcolor: "#C6FF72",
+//             borderRadius: "16px",
+//             height: "100%",
+//             display: "flex",
+//             flexDirection: "column",
+//             justifyContent: "center",
+//           }}
+//         >
+//           <Typography variant="h6" fontWeight={700} mb={1}>
+//             41% of clicks
+//           </Typography>
+//           <Typography variant="body2" color="text.primary">
+//             on search engines go to the top three organic results, showing the
+//             importance of ranking highly.
+//           </Typography>
+//         </Box>
+//       </Grid>
+
+//       {/* Bottom Left */}
+//       <Grid item xs={12} sm={6}>
+//         <Box
+//           sx={{
+//             p: 3,
+//             bgcolor: "grey.100",
+//             borderRadius: "16px",
+//             height: "100%",
+//             display: "flex",
+//             flexDirection: "column",
+//             justifyContent: "center",
+//           }}
+//         >
+//           <Typography variant="body2" color="text.secondary" mb={1}>
+//             Content marketing costs{" "}
+//             <Box component="span" fontWeight={700}>
+//               62% less than paid ads
+//             </Box>
+//           </Typography>
+//           <Typography variant="body2" color="text.secondary">
+//             but generates{" "}
+//             <Box component="span" fontWeight={700}>
+//               3x as many leads
+//             </Box>
+//           </Typography>
+//         </Box>
+//       </Grid>
+
+//       {/* Bottom Right */}
+//       <Grid item xs={12} sm={6}>
+//         <Box
+//           sx={{
+//             p: 3,
+//             bgcolor: "#1A1A1A",
+//             borderRadius: "16px",
+//             color: "#fff",
+//             height: "100%",
+//             display: "flex",
+//             flexDirection: "column",
+//             justifyContent: "center",
+//           }}
+//         >
+//           <Typography variant="body2" color="grey.400" mb={1}>
+//             Organic search drives
+//           </Typography>
+//           <Typography variant="h6" fontWeight={700}>
+//             <Box component="span" color="#72FF8F">
+//               53%
+//             </Box>{" "}
+//             of all website traffic,
+//           </Typography>
+//           <Typography variant="body2" mt={1}>
+//             making it the largest single source of traffic.
+//           </Typography>
+//         </Box>
+//       </Grid>
+//     </Grid>
+//   );
+// };
+
+// export default Article;

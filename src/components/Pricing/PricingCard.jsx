@@ -28,19 +28,20 @@ const PricingCard = ({ plan }) => {
   return (
     <Card
       sx={{
-        maxWidth: 400, // ↓ Set the max width
-        width: "100%", // Ensures responsiveness
-        mx: "auto", // Center horizontally
+        maxWidth: 350,
+        width: "100%",
+        mx: "auto",
         height: "100%",
         display: "flex",
         flexDirection: "column",
         backgroundColor: backgroundColor,
         color: textColor,
-        borderRadius: 3,
+        borderRadius: 7,
         overflow: "visible",
         position: "relative",
         p: 2,
-        border: isPopular ? "1px solid #c1ff72" : "1px solid #e5e7eb",
+        border: isPopular ? "" : 1,
+        boxShadow: "0 4px 0 #000",
       }}
       elevation={isPopular ? 6 : 1}
     >
@@ -120,18 +121,9 @@ const PricingCard = ({ plan }) => {
           sx={{
             py: 1.5,
             mb: 3,
-            borderColor: isPopular
-              ? "rgba(255, 255, 255, 0.23)"
-              : "rgba(0, 0, 0, 0.23)",
+            border: 2,
+            borderColor: isPopular ? "white" : "black",
             color: textColor,
-            "&:hover": {
-              borderColor: isPopular
-                ? "rgba(255, 255, 255, 0.5)"
-                : "rgba(0, 0, 0, 0.5)",
-              backgroundColor: isPopular
-                ? "rgba(255, 255, 255, 0.05)"
-                : "rgba(0, 0, 0, 0.05)",
-            },
           }}
         >
           Request a quote
@@ -140,9 +132,8 @@ const PricingCard = ({ plan }) => {
         <Divider
           sx={{
             my: 2,
-            borderColor: isPopular
-              ? "rgba(255, 255, 255, 0.12)"
-              : "rgba(0, 0, 0, 0.12)",
+            borderColor: isPopular ? "white" : "black",
+            border: 1,
           }}
         />
 
@@ -165,16 +156,16 @@ const PricingCard = ({ plan }) => {
                     width: 24,
                     height: 24,
                     borderRadius: "50%",
-                    backgroundColor: "#c1ff72",
+                    backgroundColor: "primary.main",
                   }}
                 >
-                  <Check size={16} color="secondary.main" />
+                  <Check />
                 </Box>
               </ListItemIcon>
               <ListItemText
                 primary={feature}
                 primaryTypographyProps={{
-                  variant: "body2",
+                  variant: "body1",
                   color: textColor,
                 }}
               />

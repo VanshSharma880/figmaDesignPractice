@@ -6,6 +6,7 @@ const ArticleCard = ({ title, description }) => {
     <Card
       sx={{
         display: "flex",
+        borderRadius: 0,
         flexDirection: "column",
         justifyContent: "space-between",
         boxShadow: "none",
@@ -27,7 +28,7 @@ const ArticleCard = ({ title, description }) => {
           {title}
         </Typography>
         <Typography
-          variant="body1"
+          variant="p"
           color="text.secondary"
           sx={{
             fontSize: { xs: "0.9rem", md: "1rem" },

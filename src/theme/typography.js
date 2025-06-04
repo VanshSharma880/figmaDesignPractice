@@ -36,32 +36,34 @@ const typography = {
     letterSpacing: "0",
   },
 
-  subtitle1: {
-    fontWeight: 400,
-    fontSize: "1rem",
-    lineHeight: 1.75,
-    letterSpacing: "0.00938em",
-  },
+  // subtitle1: {
+  //   fontWeight: 400,
+  //   fontSize: "1rem",
+  //   lineHeight: 1.75,
+  //   letterSpacing: "0.00938em",
+  // },
 
-  subtitle2: {
-    fontWeight: 500,
-    fontSize: "0.875rem",
-    lineHeight: 1.57,
-    letterSpacing: "0.00714em",
-  },
+  // subtitle2: {
+  //   fontWeight: 500,
+  //   fontSize: "0.875rem",
+  //   lineHeight: 1.57,
+  //   letterSpacing: "0.00714em",
+  // },
 
   body1: {
     fontWeight: 400,
     fontSize: "1rem",
     lineHeight: 1.5,
     letterSpacing: "0",
+    textAlign: "justify",
   },
 
   body2: {
     fontWeight: 500,
-    fontSize: "1rem",
-    lineHeight: 2,
-    letterSpacing: "0.02857em",
+    fontSize: "20px",
+    lineHeight: 1.5,
+    letterSpacing: "0",
+    textAlign: "justify",
   },
   button: {
     fontWeight: 500,

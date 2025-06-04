@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import PricingCard from "./PricingCard";
 import SectionHeading from "../SectionHeading";
 
@@ -59,20 +59,21 @@ const plans = [
 const PricingSection = () => {
   return (
     <Box>
-      <SectionHeading
-        title={"Pricing"}
-        description={
-          "Elevate Your Online Presence: Competitive Pricing for Exceptional Results"
-        }
-      />
+      <Typography variant="h1">Pricing</Typography>
+      <Typography variant="body1" maxWidth={400} py={3}>
+        Elevate Your Online Presence: Competitive Pricing for Exceptional
+        Results
+      </Typography>
 
-      <Grid container spacing={1} justifyContent="center">
-        {plans.map((plan, index) => (
-          <Grid item xs={12} sm={12} md={3} key={index}>
-            <PricingCard plan={plan} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box sx={{ py: 5 }}>
+        <Grid container spacing={4} justifyContent="center">
+          {plans.map((plan, index) => (
+            <Grid item xs={12} sm={12} md={3} key={index}>
+              <PricingCard plan={plan} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 };

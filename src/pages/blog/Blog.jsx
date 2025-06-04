@@ -4,6 +4,7 @@ import IllustrationHero from "/assets/IllustrationHero.svg";
 import { Box, Typography } from "@mui/material";
 import ArticleGrid from "../../components/Blog/ArticleGrid";
 import Article from "../../components/Blog/Article";
+import SectionHeading from "../../components/SectionHeading";
 
 const Blog = () => {
   return (
@@ -14,6 +15,13 @@ const Blog = () => {
         image={IllustrationHero}
       />
       <Article />
+      {/* Explore more Insight */}
+      <SectionHeading
+        title={"Explore more insights"}
+        description={
+          "Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+        }
+      />
       <ArticleGrid />
     </Box>
   );

@@ -1,24 +1,19 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ClientLogo from "./ClientLogo";
 
-// Mock logos using Lucide icons
 const clients = [
-  { name: "Amazon", type: "amazon" },
-  { name: "Dribbble", type: "dribbble" },
-  { name: "HubSpot", type: "hubspot" },
-  { name: "Notion", type: "notion" },
-  { name: "Netflix", type: "netflix" },
-  { name: "Zoom", type: "zoom" },
+  { name: "Amazon", type: "Amazon" },
+  { name: "Dribbble", type: "Dribbble" },
+  { name: "HubSpot", type: "HubSpot" },
+  { name: "Notion", type: "Notion" },
+  { name: "Netflix", type: "Netflix" },
+  { name: "Zoom", type: "Zoom" },
 ];
 
 const Clients = () => {
   return (
-    <Box
-      sx={{
-        py: { xs: 3, md: 4 },
-      }}
-    >
-      <Grid container justifyContent="space-evenly" alignItems="center">
+    <Box>
+      <Grid container justifyContent="space-between">
         {clients.map((client) => (
           <Grid
             item
@@ -26,10 +21,7 @@ const Clients = () => {
             xs={6}
             sm={4}
             md={2}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
+            sx={{ display: "flex", justifyContent: "center" }}
           >
             <ClientLogo type={client.type} />
           </Grid>

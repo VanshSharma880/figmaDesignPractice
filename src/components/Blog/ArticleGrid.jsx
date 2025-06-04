@@ -1,7 +1,5 @@
-import React from "react";
 import { Box, Grid, Divider, Container } from "@mui/material";
 import ArticleCard from "./ArticleCard";
-import SectionHeading from "../SectionHeading";
 
 const articles = [
   {
@@ -26,7 +24,7 @@ const articles = [
     id: 4,
     title: "The Art of A/B Testing: Perfecting Your Campaigns",
     description:
-      "From headlines to call-to-actions, small tweaks can make a big difference. Learn how to use A/B testing to refine your marketing strategies.",
+      "From headlines to call-to-actions, small tweaks can make a big difference. to use A/B testing to refine your marketing strategies.",
   },
   {
     id: 5,
@@ -38,24 +36,19 @@ const articles = [
     id: 6,
     title: "5 Ways AI is Changing Digital Marketing",
     description:
-      "Artificial intelligence is transforming the way we target, analyze, and engage audiences. Discover how to leverage AI to stay competitive.",
+      "Artificial intelligence is  target, analyze, and engage audiences. Discover how to leverage AI to stay competitive.",
   },
 ];
 
 const ArticleGrid = () => {
   return (
     <Box>
-      <SectionHeading
-        title={"Explore more insights"}
-        description={
-          "Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
-        }
-      />
       <Container maxWidth="lg" sx={{ py: 5 }}>
         <Box
           sx={{
             border: "1px solid #e2e8f0",
             borderRadius: "16px",
+            p: 2,
           }}
         >
           <Grid container columns={{ xs: 1, sm: 1, md: 12 }}>

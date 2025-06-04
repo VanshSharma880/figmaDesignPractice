@@ -1,4 +1,3 @@
-import React from "react";
 import CaseStudiesSection from "../CaseStudiesSection";
 
 const data = [
@@ -12,8 +11,8 @@ const data = [
     text: "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
   },
 ];
-const CaseStudies = () => {
+const UseCaseSection = () => {
   return <CaseStudiesSection data={data} />;
 };
 
-export default CaseStudies;
+export default UseCaseSection;

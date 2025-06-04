@@ -1,89 +1,13 @@
-// import React from "react";
-// import { Card, CardContent, Typography, Button, Box } from "@mui/material";
-// import { styled } from "@mui/material/styles";
-// import { CallMade } from "@mui/icons-material";
-// const StyledCard = ({ bgcolor }) => ({
-//   height: "200px",
-//   backgroundColor: bgcolor || "#f8f9fa",
-//   border: "none",
-//   borderRadius: "16px",
-//   display: "flex",
-//   flexDirection: "column",
-//   justifyContent: "space-between",
-//   padding: "24px",
-//   cursor: "pointer",
-//   transition: "transform 0.2s ease-in-out",
-//   "&:hover": {
-//     transform: "translateY(-4px)",
-//   },
-// });
-
-// const ServiceCard = ({ title, icon: Icon, bgcolor, textColor = "#000" }) => {
-//   const isWhiteText = textColor === "white";
-
-//   return (
-//     <StyledCard bgcolor={bgcolor}>
-//       <CardContent sx={{ p: 0 }}>
-//         <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-//           <Box
-//             sx={{
-//               backgroundColor: "#fff",
-//               borderRadius: "50%",
-//               width: 40,
-//               height: 40,
-//               display: "flex",
-//               alignItems: "center",
-//               justifyContent: "center",
-//               mr: 2,
-//             }}
-//           >
-//             <Icon size={20} />
-//           </Box>
-//           <Typography
-//             variant="h6"
-//             sx={{ fontWeight: "bold", color: textColor }}
-//           >
-//             {title}
-//           </Typography>
-//         </Box>
-//         <Box
-//           sx={{
-//             display: "flex",
-//             justifyContent: "space-between",
-//             alignItems: "flex-end",
-//           }}
-//         >
-//           <Button
-//             sx={{
-//               color: textColor,
-//               textTransform: "none",
-//               p: 0,
-//               minWidth: "auto",
-//             }}
-//             endIcon={<CallMade size={16} color={textColor} />}
-//           >
-//             Learn more
-//           </Button>
-//           <Box
-//             sx={{
-//               width: 80,
-//               height: 60,
-//               backgroundColor: isWhiteText ? "#444" : "#e0e0e0",
-//               borderRadius: 1,
-//             }}
-//           />
-//         </Box>
-//       </CardContent>
-//     </StyledCard>
-//   );
-// };
-
-// export default ServiceCard;
-
 import { Box, Typography, Button, Grid } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
-function ServiceCard() {
+// Service Card Component
+function ServiceCard({
+  title,
+  imageName,
+  bgcolor = "tertiary.main",
+  textBgColor,
+}) {
   return (
     <Box
       sx={{
@@ -91,47 +15,33 @@ function ServiceCard() {
         flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
         alignItems: "center",
-        bgcolor: "tertiary.main",
+        bgcolor: bgcolor,
+        border: 1,
         borderRadius: "24px",
         p: { xs: 2, sm: 3, md: 4 },
         boxShadow: "0 4px 0 #000",
-        maxWidth: 600,
-        width: "100%",
-        mx: "auto",
+        width: "500px",
         minHeight: { xs: "auto", md: 200 },
         textAlign: { xs: "center", md: "left" },
       }}
     >
       {/* Left Side */}
       <Box flex={1}>
-        <Box
+        <Typography
           sx={{
             display: "inline-block",
-            bgcolor: "primary.main",
+            bgcolor: textBgColor,
             borderRadius: 2,
             px: 1,
           }}
+          variant="h4"
+          display="inline"
         >
-          <Typography variant="h4" display="inline">
-            Search engine
-          </Typography>
-        </Box>
-        <br />
-        <Box
-          sx={{
-            display: "inline-block",
-            bgcolor: "#c5ff61",
-            borderRadius: 2,
-            px: 1,
-          }}
-        >
-          <Typography variant="h4" display="inline">
-            optimization
-          </Typography>
-        </Box>
+          {title}
+        </Typography>
 
         <Box
-          mt={4}
+          mt={10}
           display="flex"
           justifyContent={{ xs: "center", md: "flex-start" }}
           alignItems="center"
@@ -145,7 +55,6 @@ function ServiceCard() {
               borderRadius: "50%",
               padding: 0,
               mr: 2,
-              "&:hover": { backgroundColor: "#333" },
             }}
           >
             <ArrowOutwardIcon sx={{ color: "#c5ff61" }} />
@@ -167,8 +76,8 @@ function ServiceCard() {
         }}
       >
         <img
-          src="/assets/SearchEngine.svg"
-          alt="SEO Illustration"
+          src={`/assets/${imageName}.svg`}
+          alt={`${title} Illustration`}
           style={{
             width: "100%",
             maxWidth: 200,
@@ -181,10 +90,51 @@ function ServiceCard() {
   );
 }
 
+// Service Data
+const serviceData = [
+  {
+    title: "Search Engine Optimization",
+    imageName: "Service1",
+    bgcolor: "tertiary.main",
+    textBgColor: "primary.main",
+  },
+  {
+    title: "Pay-Per-Click Advertising",
+    imageName: "Service2",
+    bgcolor: "primary.main",
+    textBgColor: "white",
+  },
+  {
+    title: "Social Media Management",
+    imageName: "Service3",
+    bgcolor: "secondary.main",
+    textBgColor: "white",
+  },
+  {
+    title: "Content Marketing",
+    imageName: "Service4",
+    bgcolor: "tertiary.main",
+    textBgColor: "primary.main",
+  },
+  {
+    title: "Email Campaigns",
+    imageName: "Service5",
+    bgcolor: "primary.main",
+    textBgColor: "white",
+  },
+  {
+    title: "Conversion Rate Optimization",
+    imageName: "Service6",
+    bgcolor: "secondary.main",
+    textBgColor: "primary.main",
+  },
+];
+
+// Grid Component
 export default function ServiceCardGrid() {
   return (
     <Grid container spacing={6} justifyContent={"center"}>
-      {Array.from({ length: 6 }).map((_, index) => (
+      {serviceData.map((service, index) => (
         <Grid
           item
           xs={12}
@@ -193,7 +143,12 @@ export default function ServiceCardGrid() {
           display="flex"
           justifyContent="center"
         >
-          <ServiceCard />
+          <ServiceCard
+            title={service.title}
+            imageName={service.imageName}
+            bgcolor={service.bgcolor}
+            textBgColor={service.textBgColor}
+          />
         </Grid>
       ))}
     </Grid>
