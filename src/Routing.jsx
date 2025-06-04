@@ -6,10 +6,12 @@ import Blog from "./pages/blog/Blog";
 import Services from "./pages/services/Services";
 import Pricing from "./pages/pricing/Pricing";
 import Layout from "./components/Layout";
+import { ScrollUp } from "./hooks/scrollUp";
 
 const Routing = () => {
   return (
     <BrowserRouter>
+      <ScrollUp />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

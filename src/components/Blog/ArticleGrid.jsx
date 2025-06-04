@@ -1,7 +1,6 @@
-import { Box, Grid, Divider, Container } from "@mui/material";
-import ArticleCard from "./ArticleCard";
+import GridDividerSection from "../GridDividerSection";
 
-const articles = [
+const data = [
   {
     id: 1,
     title: "10 SEO Myths You Need to Stop Believing",
@@ -41,94 +40,7 @@ const articles = [
 ];
 
 const ArticleGrid = () => {
-  return (
-    <Box>
-      <Container maxWidth="lg" sx={{ py: 5 }}>
-        <Box
-          sx={{
-            border: "1px solid #e2e8f0",
-            borderRadius: "16px",
-            p: 2,
-          }}
-        >
-          <Grid container columns={{ xs: 1, sm: 1, md: 12 }}>
-            {articles.map((article) => {
-              return (
-                <Grid item size={{ xs: 2, sm: 4, md: 4 }}>
-                  <ArticleCard
-                    title={article.title}
-                    description={article.description}
-                  />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Box>
-      </Container>
-    </Box>
-  );
+  return <GridDividerSection data={data} />;
 };
 
 export default ArticleGrid;
-
-// import { Paper } from "@mui/material";
-// import Box from "@mui/material/Box";
-// import Grid from "@mui/material/Grid";
-
-// export default function ArticleGrid() {
-//   return (
-//     <Box sx={{ flexGrow: 1 }}>
-//       <Grid
-//         container
-//         spacing={{ xs: 2, md: 3 }}
-//         columns={{ xs: 1, sm: 1, md: 12 }}
-//       >
-//         {Array.from(Array(6)).map((_, index) => (
-//           <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
-//             <Paper>{index + 1}</Paper>
-//           </Grid>
-//         ))}
-//       </Grid>
-//     </Box>
-//   );
-// }
-
-// import {
-//   Box,
-//   Container,
-//   Divider,
-//   Grid,
-//   Paper,
-//   useMediaQuery,
-//   useTheme,
-// } from "@mui/material";
-// import React from "react";
-// import ArticleCard from "./ArticleCard";
-
-// const ArticleGrid = () => {
-//   return (
-//     <Container maxWidth="lg" sx={{ py: 5 }}>
-//       <Box
-//         sx={{
-//           border: "1px solid #e2e8f0",
-//           borderRadius: "16px",
-//         }}
-//       >
-//         <Grid container spacing={{ xs: 2, md: 3 }}>
-//           {Array.from(Array(6)).map((_, index) => (
-//             <Grid item key={index} xs={12} sm={6} md={4}>
-//               <ArticleCard
-//                 title={`Article Title ${index + 1}`}
-//                 description={`This is the description for article ${
-//                   index + 1
-//                 }.`}
-//               />
-//             </Grid>
-//           ))}
-//         </Grid>
-//       </Box>
-//     </Container>
-//   );
-// };
-
-// export default ArticleGrid;

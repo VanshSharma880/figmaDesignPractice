@@ -1,22 +1,31 @@
-import { Card, CardContent, Typography, Box, Button } from "@mui/material";
+import { Box, Button, Card, CardContent, Typography } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-
-const ArticleCard = ({ title, description }) => {
+const DividerCard = ({
+  title,
+  description,
+  showTopBorder,
+  showLeftBorder,
+  showRightBorder,
+  showBottomBorder,
+}) => {
   return (
     <Card
       sx={{
         display: "flex",
-        borderRadius: 0,
         flexDirection: "column",
         justifyContent: "space-between",
-        boxShadow: "none",
         p: 3,
+        boxShadow: "none",
+        borderRadius: 0,
+        borderTop: showTopBorder ? "1px solid #ccc" : "none",
+        borderBottom: showBottomBorder ? "1px solid #ccc" : "none",
+        borderLeft: showLeftBorder ? "1px solid #ccc" : "none",
+        borderRight: showRightBorder ? "1px solid #ccc" : "none",
       }}
     >
       <CardContent>
         <Typography
-          variant="h5"
-          component="h3"
+          variant="h3"
           gutterBottom
           sx={{
             fontWeight: 600,
@@ -28,7 +37,7 @@ const ArticleCard = ({ title, description }) => {
           {title}
         </Typography>
         <Typography
-          variant="p"
+          variant="body1"
           color="text.secondary"
           sx={{
             fontSize: { xs: "0.9rem", md: "1rem" },
@@ -61,4 +70,4 @@ const ArticleCard = ({ title, description }) => {
   );
 };
 
-export default ArticleCard;
+export default DividerCard;

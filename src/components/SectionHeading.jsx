@@ -5,6 +5,7 @@ const SectionHeading = ({ title, description }) => {
     <Box
       sx={{
         py: 5,
+        my: 5,
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         alignItems: { xs: "flex-start", md: "center" },

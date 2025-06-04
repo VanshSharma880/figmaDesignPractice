@@ -16,6 +16,12 @@ const UseCase = () => {
         image={AboutUsHero}
       />
       <FeaturedSuccess />
+      <SectionHeading
+        title={"All Success Stories"}
+        description={
+          "Explore real life example of digital marketing success through our case studies"
+        }
+      />
       <AllSuccessStories />
       {/* Testimonials */}
       <SectionHeading
