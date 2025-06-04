@@ -120,7 +120,7 @@ const CoreValueSecond = () => {
           width: "100%",
           height: { xs: "auto", md: 400 },
           borderRadius: 10,
-          bgcolor: "tertiary.main",
+          bgcolor: "secondary.main",
           overflow: "visible",
         }}
       >
@@ -166,17 +166,12 @@ const CoreValueSecond = () => {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              <Typography
-                variant="h4"
-                sx={{
-                  fontSize: { xs: "1.5rem", md: "2.5rem" },
-                }}
-              >
+              <Typography variant="h3" color="white">
                 “Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laboriosam voluptates ea odit aperiam vel. Suscipit fuga quam
                 fugiat! Quisquam, et”
               </Typography>
-              <Typography variant="body1" sx={{ mt: 3 }}>
+              <Typography variant="body1" sx={{ mt: 3 }} color="white">
                 - James Smith, Founder of Positivus
               </Typography>
             </Box>

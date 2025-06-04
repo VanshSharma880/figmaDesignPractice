@@ -23,7 +23,9 @@ const Clients = () => {
             md={2}
             sx={{ display: "flex", justifyContent: "center" }}
           >
-            <ClientLogo type={client.type} />
+            <Box sx={{ filter: "grayscale(100%)", opacity: 10 }}>
+              <ClientLogo type={client.type} />
+            </Box>
           </Grid>
         ))}
       </Grid>

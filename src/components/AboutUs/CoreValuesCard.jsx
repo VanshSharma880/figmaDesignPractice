@@ -9,13 +9,12 @@ const CoreValuesCard = ({ title, description, image }) => {
         justifyContent: "space-between",
         alignItems: "center",
         border: 1,
-        borderRadius: "24px",
+        borderRadius: 10,
         p: 2,
         boxShadow: "0 4px 0 #000",
-        width: "500px",
-        minHeight: { xs: "auto", md: 200 },
+        width: "600px",
+        minHeight: { xs: "auto", md: 250 },
         textAlign: { xs: "center", md: "left" },
-        height: "100%",
       }}
     >
       {/* Left Content */}

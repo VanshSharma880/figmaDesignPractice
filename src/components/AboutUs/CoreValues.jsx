@@ -12,12 +12,12 @@ const CoreValues = () => {
     {
       title: "Integrity",
       description: "We uphold the highest standards of honesty.",
-      image: "/assets/Service1.svg",
+      image: "/assets/Innovation.svg",
     },
     {
       title: "Teamwork",
       description: "We believe in the power of working together.",
-      image: "/assets/Service3.svg",
+      image: "/assets/Collaboration.svg",
     },
     {
       title: "Excellence",

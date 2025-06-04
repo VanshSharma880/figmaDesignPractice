@@ -21,7 +21,6 @@ const Hero = () => {
             <Typography
               variant="body1"
               sx={{
-                color: "text.secondary",
                 mb: 4,
               }}
             >
@@ -53,6 +52,7 @@ const Hero = () => {
           </Box>
         </Grid>
       </Grid>
+      {/* Client Company */}
       <Clients />
     </Box>
   );
